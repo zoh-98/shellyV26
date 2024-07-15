@@ -1,0 +1,26 @@
+{
+
+    
+  "AD": ["100061089512442"],
+  "MAD": ["value2"],
+  "PREFIX": ".",
+  "APPSTATEPATH": "SCookies.json",
+  "BOTNAME": "ꜱʜᴇʟʟʏ",
+  "OWNERID": "100061089512442",
+  "DeveloperMode": false, 
+  "onlyme": false,
+  "FCAOption": {
+      "forceLogin": true,
+      "listenEvents": true,
+      "logLevel": "silent",
+      "selfListen": false,
+      "autoMarkRead": true,
+      "userAgent": "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21"
+  },
+    
+"DATABASE": {
+    "type": "mongodb"
+}
+
+    
+}
