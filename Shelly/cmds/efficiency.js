@@ -183,8 +183,8 @@ const answer = randomQuestion.answer;
         condition: `event.body.toLowerCase() == "${answer.toLowerCase()}"`,
         result: `async () => {
           try {
-            Message.react("✅");
-            Message.reply("⇜ | تهانينا " + await usersData.getName(event.senderID) + " اجابتك صحيحة وحصلت على 20 دولار");
+            sh.react("✅");
+            sh.reply("⇜ | تهانينا " + await usersData.getName(event.senderID) + " اجابتك صحيحة وحصلت على 20 دولار");
             
             const Data = await threadsData.get(event.threadID);
             
