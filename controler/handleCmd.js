@@ -75,7 +75,9 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.
         var permssion = 0;
 
 
-
+    if (threadData.adminIDs.includes(senderID.toString())) {
+      permission = 1;
+    } 
 
 
     if (config.MAD.includes(senderID.toString())) permssion = 2;
@@ -84,9 +86,6 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.
     if (config.AD.includes(senderID.toString())) permssion = 3;
 
 
-    else if (threadData.adminIDs.includes(senderID.toString())) {
-      permission = 1;
-    }
 
 
     if (DOM.config.Auth > permssion) return sh.reply(`ليس لديك الصلاحية لاستخدام هذا الأمر "${DOM.config.name}" `);
