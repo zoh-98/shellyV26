@@ -197,9 +197,13 @@ const answer = randomQuestion.answer;
               
               await threadsData.set(event.threadID, 20 , "data.champ." + event.senderID + ".points");
               
-              }
+}
               
-            }
+            } else {
+              
+              await threadsData.set(event.threadID, 20 , "data.champ." + event.senderID + ".points");
+              
+              }
           } catch (e) {
           }
         }`,
