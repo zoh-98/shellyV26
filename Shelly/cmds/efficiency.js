@@ -17,7 +17,7 @@ module.exports.config = {
 };
 
 
-module.exports.onType = async function ({ api, event, sh: Message , usersData, threadsData }) {
+module.exports.onType = async function ({ api, event, sh: Message , usersData, threadsData, args }) {
 
 if (   !args  ||   
       ["اعلام", "ترتيب"].includes(args[0])
