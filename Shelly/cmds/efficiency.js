@@ -223,17 +223,23 @@ let data = threadData.data.champ;
 
 const sortedUsers = Object.entries(data).sort((a, b) => b[1].points - a[1].points);
 
-let msg = "🎉 ترتيب اعضاء المجموعة حسب النقاط 🎉\n";
+let top = "🎉 ترتيب اعضاء المجموعة حسب النقاط 🎉\n";
 let i = 0;
+
+        let arr = [];
+
+        
 
 sortedUsers.forEach(async ([uid, user]) => {
   i++
 let name = await usersData.getName(uid);
 let level = (i == 1) ? "الاول 🥇" : (i == 2) ? "الثاني 🥈" : (i == 3) ? "الثالث" : i;
 
- msg += `${level}: ${name} \nعدد النقاط: ${user.points}.\n`
+ arr.push(`${level}: ${name} \nعدد النقاط: ${user.points}.`);
 });
-
+        
+let msg = top + "\n\n" + arr.join("\n");
+        
      Message.reply(msg);
      
     }
