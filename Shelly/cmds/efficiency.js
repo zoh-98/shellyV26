@@ -7,7 +7,7 @@ function shuffleArray(array) {
 }
 
 module.exports.config = {
-    name: "فعاليات",
+    name: "فعالية",
     Auth: 0,
     Owner: "عبد الرحمان",
     Info: "فعاليات لممجموعات",
@@ -191,23 +191,13 @@ const answer = randomQuestion.answer;
             if (Data.data.champ) {
             if (Data.data.champ[event.senderID]) {
             let obj = {
-              data: {
-
-              champ: { }
-              }
-              }
-
-              obj.data.champ[event.senderID] = {};
+              data: Data.data };
+              
               obj.data.champ[event.senderID].points = Data.data.champ[event.senderID].points + 20;
               await threadsData.set(event.threadID, obj);
               
               } else {
-              let obj = {
-              data: {
-
-              champ: { }
-              }
-              }
+              let obj = { data: Data.data }
 
               obj.data.champ[event.senderID] = {};
               obj.data.champ[event.senderID].points = 20;
