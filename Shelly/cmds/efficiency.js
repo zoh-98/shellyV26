@@ -238,34 +238,25 @@ const answer = randomQuestion.answer;
     if(args[0] == "ترتيب") {
     const threadData = await threadsData.get(event.threadID);
     if (!threadData.data.champ) {
-    
-    return Message.reply("لا احد في هذه المجموعة يمتلك نقاطا مسبقا");
-    
+        return Message.reply("لا احد في هذه المجموعة يمتلك نقاطا مسبقا");
     }
-let data = threadData.data.champ;
 
+    let data = threadData.data.champ;
+    const sortedUsers = Object.entries(data).sort((a, b) => b[1].points - a[1].points);
 
-const sortedUsers = Object.entries(data).sort((a, b) => b[1].points - a[1].points);
+    let top = "🎉 ترتيب اعضاء المجموعة حسب النقاط 🎉\n";
+    let arr = [];
+    let i = 0;
 
-let top = "🎉 ترتيب اعضاء المجموعة حسب النقاط 🎉\n";
-let i = 0;
-
-        let arr = [];
-
-        
-
-sortedUsers.forEach(async ([uid, user]) => {
-  i++
-let name = await usersData.getName(uid);
-let level = (i == 1) ? "الاول 🥇" : (i == 2) ? "الثاني 🥈" : (i == 3) ? "الثالث" : i;
-
- arr.push(`${level}: ${name} \nعدد النقاط: ${user.points}.`);
-});
-        
-let msg = top + "\n\n" + arr.join("\n");
-        
-     Message.reply(msg);
-     
+    for (const [uid, user] of sortedUsers) {
+        i++;
+        let name = await usersData.getName(uid);
+        let level = (i == 1) ? "الاول 🥇" : (i == 2) ? "الثاني 🥈" : (i == 3) ? "الثالث 🥉" : `المركز ${i}`;
+        arr.push(`${level}: ${name} \nعدد النقاط: ${user.points}`);
+    }
+    
+    let msg = top + "\n\n" + arr.join("\n");
+    Message.reply(msg);
     }
     
 };
