@@ -2,7 +2,7 @@
 
 module.exports.config = {
   name: "اضف",
-  How: 0,
+  Auth: 0,
   Owner: "Gry凧",
   Info: "اضافة مستخدم للمجموعة",
   Class: "group",
@@ -21,14 +21,18 @@ module.exports.onType = async function ({ api, event, args }) {
   var { participantIDs, approvalMode, adminIDs } = await api.getThreadInfo(threadID);
   var participantIDs = participantIDs.map(e => parseInt(e));
   if (!args[0]) return out("من فضلك قم باضافة ID او رابط الشخص المراد اضافته.");
-  if (!isNaN(args[0])) return adduser(args[0], undefined);
+  if (!isNaN(args[0])) { 
+    const name = usersData.getName(args[0]);
+    
+    return adduser(args[0], name) };
   else {
     try {
       var [id, name, fail] = await getUID(args[0], api);
-      if (fail == true && id != null) return out(id);
+      name = usersData.getName(id);
+   if (fail == true && id != null) return out(id);
       else if (fail == true && id == null) return out("لم يتم ايجاد.")
       else {
-        await adduser(id, name || "Facebook user");
+        await adduser(id, name || "مستخدم فايسبوك");
       }
     } catch (e) {
       return out(`${e.name}: ${e.message}.`);
@@ -37,17 +41,17 @@ module.exports.onType = async function ({ api, event, args }) {
 
   async function adduser(id, name) {
     id = parseInt(id);
-    if (participantIDs.includes(id)) return out(`${name ? name : "Member"} موجود في المجموعة بالفعل.`);
+    if (participantIDs.includes(id)) return out(`${name ? name : "العضو"} موجود في المجموعة بالفعل.`);
     else {
       var admins = adminIDs.map(e => parseInt(e.id));
       try {
         await api.addUserToGroup(id, threadID);
       }
       catch {
-        return out(`لا يمكن اضافة ${name ? name : "user"} الى المجموعة.`);
+        return out(`لا يمكن اضافة ${name ? name : "المستخدم"} الى المجموعة.`);
       }
-      if (approvalMode === true && !admins.includes(botID)) return out(`تمت اضافة ${name ? name : "member"} الى طلبات العضوية !`);
-      else return out(`تمت اضافة ${name ? name : "member"} الى المجموعة !`)
+      if (approvalMode === true && !admins.includes(botID)) return out(`تمت اضافة ${name ? name : "العضو"} الى طلبات العضوية !`);
+      else return out(`تمت اضافة ${name ? name : "العضو"} الى المجموعة !`)
     }
   }
     }
