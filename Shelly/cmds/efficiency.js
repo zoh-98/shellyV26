@@ -187,8 +187,8 @@ const answer = randomQuestion.answer;
             sh.reply("⇜ | تهانينا " + await usersData.getName(event.senderID) + " اجابتك صحيحة وحصلت على 20 دولار");
             
             const Data = await threadsData.get(event.threadID);
-            
-            if (Data.data.champ?[event.senderID]) {
+            if (Data.data.champ) {
+            if (Data.data.champ[event.senderID]) {
             
               await threadsData.set(event.threadID, Data.data.champ[event.senderID].points + 20, "data.champ" + event.senderID + ".points");
               
@@ -197,6 +197,8 @@ const answer = randomQuestion.answer;
               await threadsData.set(event.threadID, 20 , "data.champ" + event.senderID + ".points");
               
               }
+              
+            }
           } catch (e) {
           }
         }`,
