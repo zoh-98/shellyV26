@@ -180,7 +180,7 @@ if (   !args  ||
 const answer = randomQuestion.answer;
     
     global.shelly.onListen.set(Math.floor(Math.random() * 10000), {
-        condition: `event.body.toLowerCase() == "${answer.toLowerCase()}"`,
+        condition: `event.body?.toLowerCase() == "${answer.toLowerCase()}"`,
         result: `async () => {
           try {
             sh.react("✅");
