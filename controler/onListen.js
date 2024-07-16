@@ -1,4 +1,4 @@
-module.exports = async () => {
+module.exports = async ({api, event , sh , threadsData, usersData, globalData }) => {
       if (global.shelly.onListen.size == 0) return;
 
       try {
