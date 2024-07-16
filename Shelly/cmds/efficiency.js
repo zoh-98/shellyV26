@@ -219,7 +219,7 @@ const sortedUsers = Object.entries(data).sort((a, b) => b[1].points - a[1].point
 let msg = "🎉 ترتيب اعضاء المجموعة حسب النقاط 🎉\n";
 let i = 0;
 
-sortedUsers.forEach(([uid, user]) => {
+sortedUsers.forEach(async ([uid, user]) => {
   i++
 let name = await usersData.getName(uid);
 let level = (i == 1) ? "الاول 🥇" : (i == 2) ? "الثاني 🥈" : (i == 3) ? "الثالث" : i;
