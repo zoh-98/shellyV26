@@ -18,13 +18,14 @@ module.exports.config = {
 
 
 module.exports.onType = async function ({ api, event, sh: Message , usersData, threadsData, args }) {
-
+if(!event.isGroup) return Message.reply("الامر للمجموهات فقط");
 if (   !args  ||   
       !["اعلام", "ترتيب"].includes(args[0])
        ) return Message.reply(`اكتب شيء وراء الامر من ذول :
       ترتيب: لرؤية ترتيب اعضاء المجموعة حسب النقاط
        اعلام: لعبة اعلام الدول 🇧🇷🇦🇷
        `);
+
        
        if (args[0] == "اعلام") {
        
@@ -194,7 +195,7 @@ const answer = randomQuestion.answer;
               
               } else {
               
-              await threadsData.set(event.threadID, 20 , "data.champ" + event.senderID + ".points");
+              await threadsData.set(event.threadID, 20 , "data.champ." + event.senderID + ".points");
               
               }
               
