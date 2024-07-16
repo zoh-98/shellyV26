@@ -190,18 +190,42 @@ const answer = randomQuestion.answer;
             const Data = await threadsData.get(event.threadID);
             if (Data.data.champ) {
             if (Data.data.champ[event.senderID]) {
-            
-              await threadsData.set(event.threadID, Data.data.champ[event.senderID].points + 20, "data.champ." + event.senderID + ".points");
+            let obj = {
+              data: {
+
+              champ: { }
+              }
+              }
+
+              obj.data.champ[event.senderID] = {};
+              obj.data.champ[event.senderID].points = Data.data.champ[event.senderID].points + 20;
+              await threadsData.set(event.threadID, obj);
               
               } else {
-              
-              await threadsData.set(event.threadID, 20 , "data.champ." + event.senderID + ".points");
+              let obj = {
+              data: {
+
+              champ: { }
+              }
+              }
+
+              obj.data.champ[event.senderID] = {};
+              obj.data.champ[event.senderID].points = 20;
+              await threadsData.set(event.threadID, obj);
               
 }
               
             } else {
-              
-              await threadsData.set(event.threadID, 20 , "data.champ." + event.senderID + ".points");
+              let obj = {
+              data: {
+
+              champ: { }
+              }
+              }
+
+              obj.data.champ[event.senderID] = {};
+              obj.data.champ[event.senderID].points = 20;
+              await threadsData.set(event.threadID, obj);
               
               }
           } catch (e) {
