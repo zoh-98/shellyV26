@@ -25,8 +25,8 @@ let cmd = {
 
         } else if (added.some(item => item.userFbId == config.OWNERID)) return sh.send("❤️😭 مرحباً بك مولاي ")
             else {
-                let { threadName } = await threadsData.get(event.threadID);
-                let { participantIDs } = event;
+
+
                 let msg;
                 let threadData = (await threadsData.get(event.threadID)).data;
 
