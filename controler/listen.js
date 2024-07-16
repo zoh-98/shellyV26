@@ -48,15 +48,15 @@ module.exports = function({ threadsData, usersData, globalData , api }) {
         handleCmd(params);
         handleReply(params);
         handleAll(params);
-        onListen();
+        onListen(params);
         break;
       case "event":
         handleEvent({ event });
-        onListen();
+        onListen(params);
       if (event.logMessageType) await threadsData.refreshInfo(event.threadID);
         break;
       case "message_reaction":
-        onListen();
+        onListen(params);
         // some random react actions
 
         if (event.reaction == "👎" && global.config.AD.includes(event.userID)) {
