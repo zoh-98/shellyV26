@@ -76,19 +76,16 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.
 
 
     if (threadData.adminIDs.includes(senderID.toString())) {
-      permission = 1;
-    } 
+  permission = 1;
+} else if (config.MAD.includes(senderID.toString())) {
+  permission = 2;
+} else if (config.AD.includes(senderID.toString())) {
+  permission = 3;
+}
 
-
-    if (config.MAD.includes(senderID.toString())) permssion = 2;
-
-
-    if (config.AD.includes(senderID.toString())) permssion = 3;
-
-
-
-
-    if (DOM.config.Auth > permssion) return sh.reply(`ليس لديك الصلاحية لاستخدام هذا الأمر "${DOM.config.name}" `);
+if (DOM.config.Auth > permission) {
+  return sh.reply(`ليس لديك الصلاحية لاستخدام هذا الأمر "${DOM.config.name}" `);
+}
 
 
 const args = body.slice(Cbody.length).trim().split(/ +/);
