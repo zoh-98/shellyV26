@@ -50,7 +50,7 @@ const si = event.body.replace(/ +/g, " ").toLowerCase().split(" ");
 
     if (!prefixRegex.test(Cbody)) return;
 
-const command = (Cbody.replace(prefixRegex, '$1')).toLowerCase();
+const command = (((Cbody.replace(prefixRegex, '$1')).trim()).replace(" ", "")).toLowerCase();
       
 if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.banned.status) {
       return sh.reply(`انت محظور من استعمال البوت :
