@@ -1,6 +1,17 @@
+let msg = `استعمال خاطئ
+حط رقم بعد الامر لبدك تراهن بيه 
+
+مثلا:
+
+.كازينو 100
+`
+
+
+
 module.exports.config = {
-	name: "قمر",
+	name: "كازينو",
 	Auth: 0,
+	KJ: ["قمر", "رهان"],
 	Owner: "GryKJ",
 	Info: "كازينو",
 	Class: "game-sp",
@@ -13,11 +24,11 @@ module.exports.onType = async function({ api, event, args, usersData }) {
             const slotItems = ["🐙","🦀","🐠"];
 			let money = (await usersData.get(event.senderID)).money;
 			var coin = args.join(" ");
-			if (!coin) return api.sendMessage(`ادخال خاطئ\n\nكيف تستعمله \n${global.config.PREFIX}رهان <مبلغ من المال>\n\nمثال:\n${global.config.PREFIX}رهان 50\n\nصنع بواسطة: Gry 凧`, threadID, messageID);
+			if (!coin) return api.sendMessage(msg, threadID, messageID);
 			let win = false;
 			if (isNaN(coin)|| coin.indexOf("-") !== -1) return api.sendMessage(`ادخال خاطئ\n\nكيف تستعمله \n${global.config.PREFIX}رهان <مبلغ من المال>\n\nمثال:\n${global.config.PREFIX}رهان 50\n\nصنع بواسطة: Gry 凧`, threadID, messageID);
-			if (!coin) return api.sendMessage(`ادخال خاطئ\n\nكيف تستعمله \n${global.config.PREFIX}رهان <مبلغ من المال>\n\nمثال:\n${global.config.PREFIX}رهان 50\n\nصنع بواسطة: Gry 凧`, threadID, messageID);
-			if (coin > money) return api.sendMessage(`لا تملك مالا كافيا من فضلك استخدم ${global.config.PREFIX}daily`, threadID, messageID);
+			if (!coin) return api.sendMessage(msg, threadID, messageID);
+			if (coin > money) return api.sendMessage(`لا تملك مالا كافيا من فضلك استخدم ${global.config.PREFIX}منجم`, threadID, messageID);
 			if (coin < 50) return api.sendMessage(`مبلغ رهانك صغير,  اقل مبلغ هو 50$\n`, threadID, messageID);
 			let number = [];
 			for (i = 0; i < 3; i++) number[i] = Math.floor(Math.random() * slotItems.length);
