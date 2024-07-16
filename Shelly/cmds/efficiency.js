@@ -191,7 +191,7 @@ const answer = randomQuestion.answer;
             if (Data.data.champ) {
             if (Data.data.champ[event.senderID]) {
             
-              await threadsData.set(event.threadID, Data.data.champ[event.senderID].points + 20, "data.champ" + event.senderID + ".points");
+              await threadsData.set(event.threadID, Data.data.champ[event.senderID].points + 20, "data.champ." + event.senderID + ".points");
               
               } else {
               
