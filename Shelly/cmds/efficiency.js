@@ -20,7 +20,7 @@ module.exports.config = {
 module.exports.onType = async function ({ api, event, sh: Message , usersData, threadsData, args }) {
 
 if (   !args  ||   
-      ["اعلام", "ترتيب"].includes(args[0])
+      !["اعلام", "ترتيب"].includes(args[0])
        ) return Message.reply(`اكتب شيء وراء الامر من ذول :
       ترتيب: لرؤية ترتيب اعضاء المجموعة حسب النقاط
        اعلام: لعبة اعلام الدول 🇧🇷🇦🇷
