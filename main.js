@@ -63,6 +63,7 @@ global.shelly = new Object({
   Time: new Map(),
   KJ: new Map(),
   eventV2: new Map(),
+  onListen: new Map(),
   handleSchedule: new Array(),
   React: new Array(),
   Reply: new Array(),
