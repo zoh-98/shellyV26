@@ -24,7 +24,7 @@ module.exports.onType = async function ({ api, event, args }) {
   if (!isNaN(args[0])) { 
     const name = usersData.getName(args[0]);
     
-    return adduser(args[0], name) };
+    return adduser(args[0], name) }
   else {
     try {
       var [id, name, fail] = await getUID(args[0], api);
