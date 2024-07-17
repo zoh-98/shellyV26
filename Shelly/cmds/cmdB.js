@@ -16,7 +16,7 @@ let cmd = {
       case "ban":
         case "بان":
           case "حظر":
-          case "-b":
+          case "-b": {
             if (!args[1]) return sh.reply("اكتب اسم الامر لبدك تبندو");
             if(!global.shelly.cmds.has(args[1])) return sh.reply("انت بدك تنبد امر مش موجود او كيف");
             
@@ -33,10 +33,10 @@ let cmd = {
             sh.reply("تم تبنيد امر: " + args[1])
             
             break;
-            
+          }
             case "uban":
         case "الغاء":
-          case "-u":
+          case "-u": {
             if (!args[1]) return sh.reply("اكتب اسم الامر لبدك تفك البان عنو");
             let obj = (await threadsData.get(event.threadID)).data.Cban;
             if (!obj) return sh.reply("ما عندك ولا امر مبند اصلا");
@@ -52,7 +52,7 @@ let cmd = {
               sh.reply("تم فك تبنيد امر: " + args[1]);
               
               break;
-              
+          }
               
               default: return sh.reply("اكتب بس حظر او الغاء")
             
