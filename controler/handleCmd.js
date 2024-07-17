@@ -38,15 +38,19 @@ const { config } = global;
     }
 
     const prefix = global.funcs.getPrefix(event.threadID) || config.PREFIX;
-const prefixRegex = new RegExp(`^\\${prefix}\\s*(.*)`);
 
-if (!prefixRegex.test(event.body)) return;
 
-const matched = event.body.match(prefixRegex);
-const commandWithArgs = matched[1].trim().toLowerCase();
-const parts = commandWithArgs.split(" ");
-const command = parts[0];
-const args = parts.slice(1);
+    const prefixRegex = new RegExp(`^\\${prefix}(.*)`);
+      
+const si = event.body.replace(/ +/g, " ").toLowerCase().split(" ");
+
+      let Cbody = si[0];
+      
+      
+
+    if (!prefixRegex.test(Cbody)) return;
+
+const command = Cbody.match(prefixRegex)[1].trim().toLowerCase();
       
 if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.banned.status) {
       return sh.reply(`انت محظور من استعمال البوت :
