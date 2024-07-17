@@ -9,7 +9,7 @@ let cmd = {
     Time: 0
   },
   
-  onType: async function({api, sh, event, threadsData}) {
+  onType: async function({api, sh, event, threadsData, args}) {
     const type = args[0];
     if (!type) return sh.reply("اكتب حظر او الغاء");
     switch (type) {
