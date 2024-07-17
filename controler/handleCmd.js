@@ -40,7 +40,7 @@ const { config } = global;
     const prefix = global.funcs.getPrefix(event.threadID) || config.PREFIX;
 
 
-    const prefixRegex = new RegExp(`^\\${prefix}(.*)`);
+    const prefixRegex = new RegExp(`^\\${prefix}\\s*(.*)`);
       
 const si = event.body.replace(/ +/g, " ").toLowerCase().split(" ");
 
