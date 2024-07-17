@@ -19,7 +19,7 @@ let cmd = {
     Class: "AI"
   },
   onType: async function({args, event, api , sh , threadsData, usersData}) {
-    if (!args) return sh.reply("اكتب شي بعد الأمر");
+    if (!args[0]) return sh.reply("اكتب شي بعد الأمر");
     
 
 
@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
   ]
 });
 
-const Chat = mongoose.model('chat', userSchema);
+const Chat = mongoose.model('Server', userSchema);
 
 
   try {
