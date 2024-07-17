@@ -38,17 +38,11 @@ const { config } = global;
     }
 
     const prefix = global.funcs.getPrefix(event.threadID) || config.PREFIX;
-
-
-    const prefixRegex = new RegExp(`^\\${prefix}(.*)`);
-      
+const prefixRegex = new RegExp(`^\\${prefix}\\s*(.*)`);
 const si = event.body.replace(/ +/g, " ").toLowerCase().split(" ");
+let Cbody = si[0];
 
-      let Cbody = si[0];
-      
-      
-
-    if (!prefixRegex.test(Cbody)) return;
+if (!prefixRegex.test(event.body)) return;
 
 const command = event.body.match(prefixRegex)[1].trim().toLowerCase();
       
