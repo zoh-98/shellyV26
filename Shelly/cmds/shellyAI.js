@@ -1,11 +1,11 @@
-
+const DB_URI = 'mongodb+srv://GryKJ:GryKJ9898_@grykj.5irmqy7.mongodb.net/?retryWrites=true&w=majority'; 
 const axios = require("axios");
 const mongoose = require('mongoose');
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to chatDB'))
   .catch(err => console.error('Could not connect to MongoDB...', err));
 
-const DB_URI = 'mongodb+srv://GryKJ:GryKJ9898_@grykj.5irmqy7.mongodb.net/?retryWrites=true&w=majority'; 
+
 let cmd = {
   
   
