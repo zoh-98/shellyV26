@@ -85,7 +85,7 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.
      }
 
         let obj = threadData.data.Cban;
-        if (obj && permssion > 0) {
+        if (obj && permssion < 0) {
           if (obj.includes(command)) {
             return;
           }
