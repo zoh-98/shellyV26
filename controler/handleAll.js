@@ -63,7 +63,7 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && (userData
 
            api,
 
-           args: body.split(""),
+           args: body.split(" "),
 
            text: body,
 
