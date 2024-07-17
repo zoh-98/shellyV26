@@ -67,6 +67,7 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.
       }
 
       if (global.shelly.cmds.has(command) || global.shelly.KJ.has(command)) {
+        
         const DOM = global.shelly.cmds.get(command) || global.shelly.KJ.get(command);
 
 
@@ -82,6 +83,13 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.
       } else if (threadData.adminIDs.includes(senderID.toString())) {
         permssion = 1;
      }
+
+        let obj = threadData.data.Cban;
+        if (obj && permssion > 0) {
+          if (obj.includes(command)) {
+            return;
+          }
+              }
 
 if (DOM.config.Auth > permssion) {
   return sh.reply(`ليس لديك الصلاحية لاستخدام هذا الأمر "${DOM.config.name}" `);
