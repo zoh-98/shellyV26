@@ -25,11 +25,6 @@ const { config } = global;
     }
 
 
-    if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && event.isGroup && !threadData.adminIDs.includes(senderID)) {
-      if (adbox === true) {
-        return sh.react('⚠️');
-      }
-    }
 
     if (!config.AD.includes(senderID) && !config.MAD.includes(senderID)) {
       if (config.onlyme) {
@@ -49,7 +44,13 @@ const si = event.body.replace(/ +/g, " ").toLowerCase().split(" ");
       
 
     if (!prefixRegex.test(Cbody)) return;
-
+      
+if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && event.isGroup && !threadData.adminIDs.includes(senderID)) {
+      if (adbox === true) {
+        return sh.react('⚠️');
+      }
+        }
+      
 const command = Cbody.match(prefixRegex)[1].trim().toLowerCase();
       
 if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.banned.status) {
