@@ -25,7 +25,7 @@ const { config } = global;
 
     if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && event.isGroup && !threadData.adminIDs.includes(senderID)) {
       if (adbox === true) {
-        return sh.react('⚠️');
+        return;
       }
     }
 
