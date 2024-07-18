@@ -45,7 +45,7 @@ const si = event.body.replace(/ +/g, " ").toLowerCase().split(" ");
 
     if (!prefixRegex.test(Cbody)) return;
       
-if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && event.isGroup && !threadData.adminIDs.includes(senderID)) {
+if (!config.AD.includes(event.senderID.toString()) && !config.MAD.includes(event.senderID.toString()) && event.isGroup && !threadData.adminIDs.includes(event.senderID.toString())) {
       if (adbox === true) {
         return sh.react('⚠️');
       }
