@@ -25,6 +25,11 @@ const { config } = global;
     }
 
 
+    if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && event.isGroup && !threadData.adminIDs.includes(senderID)) {
+      if (adbox === true) {
+        return sh.react('⚠️');
+      }
+    }
 
     if (!config.AD.includes(senderID) && !config.MAD.includes(senderID)) {
       if (config.onlyme) {
@@ -44,13 +49,7 @@ const si = event.body.replace(/ +/g, " ").toLowerCase().split(" ");
       
 
     if (!prefixRegex.test(Cbody)) return;
-      
-if (!config.AD.includes(event.senderID.toString()) && !config.MAD.includes(event.senderID.toString()) && !threadData.adminIDs.includes(event.senderID.toString()) && event.isGroup) {
-      if (adbox === true) {
-        return sh.react('⚠️');
-      }
-        }
-      
+
 const command = Cbody.match(prefixRegex)[1].trim().toLowerCase();
       
 if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.banned.status) {
@@ -133,13 +132,10 @@ const args = body.slice(Cbody.length).trim().split(/ +/);
           i++
           let c = global.shelly.cmds.get(key);
 
-          if (c.config.Hide && c.config.Hide == true)
+          if (c.config?.Hide == true || c.config.Auth > permssion)
 
           {
             i = i - 1
-          } else if (DOM.config.Auth > permssion) {
-
-            
           } else {
             let name = c.config.name;
             arr.push(name);
