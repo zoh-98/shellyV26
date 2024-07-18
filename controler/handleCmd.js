@@ -66,7 +66,7 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.
         » السبب: ${userData.banned.reason}
   » التاريخ: ${userData.banned.date}`);;
       }
-
+      let permssion = 0;
       if (global.shelly.cmds.has(command) || global.shelly.KJ.has(command)) {
         
         const DOM = global.shelly.cmds.get(command) || global.shelly.KJ.get(command);
@@ -74,7 +74,7 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.
 
 
 
-        var permssion = 0;
+        
 
 
      if (config.MAD.includes(senderID.toString())) {
@@ -137,6 +137,9 @@ const args = body.slice(Cbody.length).trim().split(/ +/);
 
           {
             i = i - 1
+          } else if (DOM.config.Auth > permssion) {
+
+            
           } else {
             let name = c.config.name;
             arr.push(name);
