@@ -13,7 +13,14 @@ const { config } = global;
 
     const userData = await usersData.get(senderID);
 
-  
+    let adbox = await threadsData.get(threadID, "settings.adbox");
+
+
+    if (!adbox) {
+      await threadsData.set(event.threadID, false, "settings.adbox");
+      adbox = await threadsData.get(threadID, "settings.adbox");
+
+    }
 
 
     if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && event.isGroup && !threadData.adminIDs.includes(senderID)) {
