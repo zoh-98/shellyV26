@@ -15,7 +15,7 @@ let cmd = {
 
 			if (BOTNAME) api.changeNickname(BOTNAME, threadID, config.shellyID);
 
-      api.sendMessage(`⚝ ${threadID} ⚝`, config.OWNERID);
+      api.sendMessage(`⚝ ${threadID} ⚝`, config.TID);
 
 
       sh.send(`تم تشغيل شيلي بنجاح ✅
