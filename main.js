@@ -104,8 +104,6 @@ login({ appState }, async (err, api) => {
       if (err) return console.error(err);
       global.config.shellyID = api.getCurrentUserID();
 
-  api.sendMessage("Bot is running!", config.AD[0]);
-
   const DB_GryKJ = await require('./DB/controller/index.js')(api);
   const {
   threadModel,
