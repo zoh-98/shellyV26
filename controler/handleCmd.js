@@ -27,7 +27,7 @@ const { config } = global;
 
     if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && event.isGroup && !threadData.adminIDs.includes(senderID)) {
       if (adbox === true) {
-        return sh.react('⚠️');
+        return;
       }
     }
 
@@ -61,9 +61,9 @@ if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && userData.
 
       if (!config.AD.includes(senderID) && !config.MAD.includes(senderID) && threadData.banned.status) {
       return sh.reply(`الغروب محظور من استعمال البوت :
-        [${senderID} | ${userData.name}]
-        » السبب: ${userData.banned.reason}
-  » التاريخ: ${userData.banned.date}`);;
+        [${senderID} | ${threadData.threadName}]
+        » السبب: ${threadData.banned.reason}
+  » التاريخ: ${threadData.banned.date}`);;
       }
       var permssion = 0;
 
