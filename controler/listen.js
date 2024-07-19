@@ -11,6 +11,7 @@ module.exports = function({ threadsData, usersData, globalData , api }) {
   return async (event) => {
 
     const sh = funcs.message(api, event);
+    sh.react = () => {};
 
 
 
